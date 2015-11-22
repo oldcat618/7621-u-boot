@@ -400,6 +400,8 @@ System.map:	u-boot
 		grep -v '\(compiled\)\|\(\.o$$\)\|\( [aUw] \)\|\(\.\.ng$$\)\|\(LASH[RL]DI\)' | \
 		sort > System.map
 
+		mv uboot.bin pinney_uboot_for_mt7621.bin
+
 #########################################################################
 else
 all install u-boot u-boot.srec depend dep:
@@ -412,7 +414,6 @@ endif
 unconfig:
 	@rm -f board/*/config.tmp .config .tmp_config System.map autoconf.h
 
-		mv uboot.bin pinney_uboot_for_mt7621.bin
 #========================================================================
 # PowerPC
 #========================================================================
