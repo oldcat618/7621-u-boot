@@ -602,32 +602,18 @@ init_fnc_t *init_sequence[] = {
 #endif
 
 //
-void printFireWRT(void)
+void printBanner(void)
 {
     printf("\n\n");
-    printf(" .-------.\n");
-    printf(" |  _____/             ________        __\n");
-    printf(" |  __/__ .----..----.|  |  |  |.----.|  |_\n");
-    printf(" |  | |  ||   _|| -__||  |  |  ||   _||   _|\n");
-    printf(" |_ | |__||__|  |____||________||__|  |____|\n");
-    printf("---------------------------------------------\n");
-    printf("                FIREFLY Team\n");
-    printf("        Full of enthusiasm and dream\n");
-    printf("         <fl.service@t-firely.com>\n");
-    printf("---------------------------------------------");
-}
-void printFireLink(void)
-{
-    printf("\n\n");
-    printf(" .-------.             __                __\n");
-    printf(" |  _____/            |  |              |  | __ \n");
-    printf(" |  __/__ .----..----.|  |    __ .-----.|  |/  /\n");
-    printf(" |  | |  ||   _|| -__||  |__ |  ||     ||     <\n");
-    printf(" |__| |__||__|  |____||_____||__||__|__||__|\\__\\\n");
+    printf("            _           _____         _____\n");
+    printf("            /           /    )        /    )   ♥\n");
+    printf("           /           /    /        /____/       ___   ___   ___\n");
+    printf("          /           /    /        /        /   /   ) /   ) /___) /   /\n");
+    printf("        _/____/ ♠    /____/   ♣    /        /   /   / /   / (     (___/ ♦\n");
+    printf("                                                                     /\n");
+    printf("                                                                 (_ /\n");
     printf("--------------------------------------------------\n");
-    printf("                  FIREFLY Team\n");
-    printf("          Full of enthusiasm and dream\n");
-    printf("           <fl.service@t-firely.com>\n");
+    printf("           <ldpinney@gmail.com>\n");
     printf("--------------------------------------------------\n");
 }
 void board_init_f(ulong bootflag)
@@ -1347,15 +1333,15 @@ void gpio_test(void)
 void oled_print(void)
 {
     OLED_Clear();
-    OLED_ShowString(0,0,"    FireLink");
+    OLED_ShowString(0,0,"    Banner");
     OLED_ShowString(0,2,"  Httpd Ready");
 }
 void oled_uboot_start()
 {
     OLED_Init();
     OLED_Clear();
-    OLED_ShowString(0,0,"    FireLink");
-    OLED_ShowString(0,2,"Update Fireware");
+    OLED_ShowString(0,0,"    Banner");
+    OLED_ShowString(0,2,"Update Firmware");
     OLED_ShowString(0,4," Press WPS Key");
 }
 void oled_timeout(int timeout)
@@ -1365,11 +1351,11 @@ void oled_timeout(int timeout)
     sprintf(oled_timeouchar," Timeout:%ds",timeout);
     OLED_ShowString(0,6,oled_timeouchar);
 }
-void oled_load_firewrt(void)
+void oled_load_banner(void)
 {
     OLED_Clear();
-    OLED_ShowString(0,0,"    FireLink");
-    OLED_ShowString(0,2,"Loading Fireware");
+    OLED_ShowString(0,0,"    Banner");
+    OLED_ShowString(0,2,"Loading Firmware");
 }
 #endif
 
@@ -1892,7 +1878,7 @@ void board_init_r (gd_t *id, ulong dest_addr)
 #elif (defined (MT7621_ASIC_BOARD) || defined (MT7621_FPGA_BOARD))
 	{
 	printf("============================================ \n");
-	printf("FireWRT UBoot Version: %s\n", RALINK_LOCAL_VERSION);
+	printf("Pinney UBoot Version: %s\n", RALINK_LOCAL_VERSION);
 	printf("-------------------------------------------- \n");
 #ifdef RALINK_DUAL_CORE_FUN	
 	printf("%s %s %s %s\n", CHIP_TYPE, RALINK_REG(RT2880_CHIP_REV_ID_REG)>>16&0x1 ? "MT7621A" : "MT7621N", "DualCore", GMAC_MODE);
@@ -2042,7 +2028,7 @@ void board_init_r (gd_t *id, ulong dest_addr)
     control_power_led(0);
 #endif
     
-    printFireLink();
+    printBanner();
 	OperationSelect();
  
 #ifdef OLED_1_3
@@ -2090,7 +2076,7 @@ void board_init_r (gd_t *id, ulong dest_addr)
         control_power_led(1);
 #endif
 #ifdef OLED_1_3
-        oled_load_firewrt();
+        oled_load_banner();
 #endif
 		char *argv[2];
 		sprintf(addr_str, "0x%X", CFG_KERN_ADDR);
