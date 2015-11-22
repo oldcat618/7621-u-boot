@@ -400,6 +400,8 @@ System.map:	u-boot
 		grep -v '\(compiled\)\|\(\.o$$\)\|\( [aUw] \)\|\(\.\.ng$$\)\|\(LASH[RL]DI\)' | \
 		sort > System.map
 
+		cp uboot.bin pinney_uboot_for_mt7621.bin
+
 #########################################################################
 else
 all install u-boot u-boot.srec depend dep:
