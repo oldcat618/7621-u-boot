@@ -611,9 +611,9 @@ void printBanner(void)
     printf("          /           /    /        /        /   /   ) /   ) /___) /   /\n");
     printf("        _/____/ ♠    /____/   ♣    /        /   /   / /   / (     (___/ ♦\n");
     printf("                                                                     /\n");
-    printf("                                                                 (_ /\n");
+    printf("                                                                ____/\n");
     printf("--------------------------------------------------\n");
-    printf("           <ldpinney@gmail.com>\n");
+    printf("             https://github.com/pinney/MT7621-u-boot-mod\n");
     printf("--------------------------------------------------\n");
 }
 void board_init_f(ulong bootflag)
