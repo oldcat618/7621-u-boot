@@ -2058,7 +2058,7 @@ void board_init_r (gd_t *id, ulong dest_addr)
 				BootType = getc();
 				if ((BootType < '0' || BootType > '5') && (BootType != '7') && (BootType != '8') && (BootType != '9'))
 					BootType = '3';
-				printf("\n\rYou choosed %c\n\n", BootType);
+				printf("\n\rYou chose %c\n\n", BootType);
 				break;
 			}
 			udelay (10000);
