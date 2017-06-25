@@ -1277,14 +1277,18 @@ define_bool ON_BOARD_DDR3 y
 define_bool ON_BOARD_DDR_WIDTH_16 y
 define_bool ON_BOARD_16BIT_DRAM_BUS y
 
-choice 'DDR Component' "512Mb  ON_BOARD_512M_DRAM_COMPONENT  \
-			1024Mb ON_BOARD_1024M_DRAM_COMPONENT \
-			2048Mb ON_BOARD_2048M_DRAM_COMPONENT \
-			4096Mb ON_BOARD_4096M_DRAM_COMPONENT
+choice 'DDR Component' "64MB  ON_BOARD_512M_DRAM_COMPONENT  \
+			128MB ON_BOARD_1024M_DRAM_COMPONENT \
+			256MB ON_BOARD_2048M_DRAM_COMPONENT \
+			512MB ON_BOARD_4096M_DRAM_COMPONENT
 			" 1024Mb
 
-choice 'DRAM Speed'    "1200Mhz MT7621_DDR_1200MHZ \
-			1066Mhz MT7621_DDR_1066MHZ \
+choice 'DRAM Speed'    "2.1GHz MT7621_DDR_2133MHZ \
+			1.8GHz MT7621_DDR_1866MHZ \
+			1.6GHz MT7621_DDR_1600MHZ \
+			1.3GHz MT7621_DDR_1333MHZ \
+			1.2GHz MT7621_DDR_1200MHZ \
+			1.06GHz MT7621_DDR_1066MHZ \
 			800Mhz MT7621_DDR_800MHZ \
 			400Mhz MT7621_DDR_400MHZ
 			"800Mhz
@@ -1307,7 +1311,15 @@ if [ "$MT7621_DDR_400MHZ" = "y" ]; then
     define_hex  MT7621_DDR_SPEED    41
 fi
 
-choice 'CPU Frequency' "900Mhz MT7621_CPU_900MHZ \
+choice 'CPU Frequency' "1.8GHz MT7621_CPU_1800MHZ \
+						1.7GHz MT7621_CPU_1700MHZ \
+						1.6GHz MT7621_CPU_1600MHZ \
+						1.5GHz MT7621_CPU_1500MHZ \
+						1.4GHz MT7621_CPU_1400MHZ \
+						1.3GHz MT7621_CPU_1300MHZ \
+						1.2GHz MT7621_CPU_1200MHZ \
+						1.1GHz MT7621_CPU_1100MHZ \
+						900Mhz MT7621_CPU_900MHZ \
 						880Mhz MT7621_CPU_880MHZ \
 						875Mhz MT7621_CPU_875MHZ \
 		   				800Mhz MT7621_CPU_800MHZ \
@@ -1315,6 +1327,32 @@ choice 'CPU Frequency' "900Mhz MT7621_CPU_900MHZ \
 						50Mhz MT7621_CPU_50MHZ"
 						800Mhz
 
+
+
+if [ "$MT7621_CPU_1800MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    708
+fi
+if [ "$MT7621_CPU_1700MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    6A4
+fi
+if [ "$MT7621_CPU_1600MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    640
+fi
+if [ "$MT7621_CPU_1500MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    5DC
+fi
+if [ "$MT7621_CPU_1400MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    578
+fi
+if [ "$MT7621_CPU_1300MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    514
+fi
+if [ "$MT7621_CPU_1200MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    4B0
+fi
+if [ "$MT7621_CPU_1100MHZ" = "y" ]; then
+    define_hex  MT7621_CPU_FREQUENCY    44C
+fi
 if [ "$MT7621_CPU_900MHZ" = "y" ]; then
     define_hex  MT7621_CPU_FREQUENCY    384
 fi
@@ -1334,17 +1372,17 @@ if [ "$MT7621_CPU_50MHZ" = "y" ]; then
     define_hex  MT7621_CPU_FREQUENCY    32
 fi
 
-choice 'UART baud rate' "57600bps MT7621_UART_57600 \
-						115200bps MT7621_UART_115200"
-						115200bps
-if [ "$MT7621_UART_57600" = "y" ]; then
-    define_int  MT7621_UART_BAUD 57600
-    define_int MT7621_UCLK_20M 1
-fi
-if [ "$MT7621_UART_115200" = "y" ]; then
-    define_int  MT7621_UART_BAUD 115200
-    define_int MT7621_UCLK_20M 0
-fi
+#choice 'UART baud rate' "57600bps MT7621_UART_57600 \
+#						115200bps MT7621_UART_115200"
+#						115200bps
+#if [ "$MT7621_UART_57600" = "y" ]; then
+#    define_int  MT7621_UART_BAUD 57600
+#    define_int MT7621_UCLK_20M 1
+#fi
+#if [ "$MT7621_UART_115200" = "y" ]; then
+#    define_int  MT7621_UART_BAUD 115200
+#    define_int MT7621_UCLK_20M 0
+#fi
 #-----------------------
 # MT7621 Option
 #-----------------------
